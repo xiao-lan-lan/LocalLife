@@ -15,6 +15,15 @@
 				</view>
 			</view>
 		</view>
+		
+		<!-- 宫格 -->
+		<view class="grid-list">
+		      <view class="grid-item" v-for="grid in gridList" :key="grid.id">
+		        <image :src="grid.icon" mode="" class="grid-img"></image>
+		        <text class="text">{{grid.name}}</text>
+		      </view>
+		    </view>
+		
 	</view>
 </template>
 
@@ -22,14 +31,25 @@
 export default {
 	data() {
 		return {
+			gridList:[]
 		};
 	},
-	onLoad() {},
-	methods: {}
+	onLoad() {
+		this.loadGrid()
+	},
+	methods: {
+		// 请求宫格数据
+		loadGrid() {
+			this.$http.get('/categories').then(res => {
+			    this.gridList=res
+			})
+		}
+	},
+	
 };
 </script>
 
-<style>
+<style lang="scss">
 	.uni-padding-wrap {
 		width: 100%;
 	}
@@ -37,4 +57,28 @@ export default {
 		width: 100%;
 		height: 150px;
 	}
+	
+.grid-list {
+     display: flex;
+     flex-wrap: wrap;
+     .grid-item {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+       flex: 33.33%;
+       border-right: 1rpx solid #eee;
+       border-bottom: 1rpx solid #eee;
+       box-sizing: border-box;
+       height: 240rpx;
+       image {
+         width: 80rpx;
+         height: 80rpx;
+         margin-bottom: 20rpx
+       }
+       text {
+         font-size: 24rpx;
+       }
+     }
+   }
 </style>
