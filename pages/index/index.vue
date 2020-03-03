@@ -1,52 +1,40 @@
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
+		<!-- 轮播图 -->
+		<view class="uni-padding-wrap">
+			<view class="page-section swiper">
+				<view class="page-section-spacing">
+					<swiper class="swiper" indicator-dots="true" autoplay="true" circular="true">
+						<swiper-item><view class="swiper-item">
+							<image src="../../static/images/banner-01.png" mode=""></image>
+						</view></swiper-item>
+						<swiper-item><view class="swiper-item">
+							<image src="../../static/images/banner-02.png" mode=""></image>
+						</view></swiper-item>
+					</swiper>
+				</view>
+			</view>
 		</view>
 	</view>
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
-				title: 'Hello'
-			}
-		},
-		onLoad() {
-
-		},
-		methods: {
-
-		}
-	}
+export default {
+	data() {
+		return {
+		};
+	},
+	onLoad() {},
+	methods: {}
+};
 </script>
 
 <style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
+	.uni-padding-wrap {
+		width: 100%;
 	}
-
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
+	image {
+		width: 100%;
+		height: 150px;
 	}
 </style>
