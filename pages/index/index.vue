@@ -18,11 +18,17 @@
 		
 		<!-- 宫格 -->
 		<view class="grid-list">
-		      <view class="grid-item" v-for="grid in gridList" :key="grid.id">
-		        <image :src="grid.icon" mode="" class="grid-img"></image>
-		        <text class="text">{{grid.name}}</text>
-		      </view>
-		    </view>
+			<view class="grid-item" v-for="grid in gridList" :key="grid.id">
+				<image :src="grid.icon" mode="" class="grid-img"></image>
+				<text class="text">{{grid.name}}</text>
+			</view>
+		</view>
+		
+		<!-- 推荐 -->
+		<view class="command">
+			<image src="../../static/images/link-01.png" mode="aspectFit"></image>
+			<image src="../../static/images/link-02.png" mode="aspectFit"></image>
+		</view>
 		
 	</view>
 </template>
@@ -81,4 +87,10 @@ export default {
        }
      }
    }
+	 .command {
+		 display: flex;
+		 image {
+			 margin: 20rpx;
+		 }
+	 }
 </style>
