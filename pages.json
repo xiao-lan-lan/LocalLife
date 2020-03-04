@@ -27,7 +27,9 @@
 		{
 			"path": "pages/list/list",
 			"style": {
-				"navigationBarTitleText": "列表"
+				"navigationBarTitleText": "列表",
+				"enablePullDownRefresh":true,
+				"onReachBottomDistance":50
 			}
 		}
 	],

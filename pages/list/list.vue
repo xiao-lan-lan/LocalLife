@@ -24,7 +24,9 @@
 	export default {
 		data() {
 			return {
-				shopList:[]
+				shopList:[],
+				shopID:1,
+				page:1
 			}
 		},
 		methods:{
@@ -38,13 +40,25 @@
 								icon:'loading'
 						});
 					}
-					this.shopList = res
+					this.shopList = [...this.shopList,...res]
 				})
 			}
 		},
 		onLoad(options) {
-			const {id} = options
-			this.loadShopList(id,1)
+			this.shopID = options.id
+			this.loadShopList(this.shopID,1)
+		},
+		onPullDownRefresh() {
+			this.loadShopList(this.shopID,1)
+		},
+		onReachBottom() {
+			this.page+=1
+			this.loadShopList(this.shopID,this.page)
+			uni.showToast({
+			    title: '加载成功',
+			    duration: 2000,
+					icon:'success'
+			});
 		}
 	}
 </script>
