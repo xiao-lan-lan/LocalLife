@@ -4,10 +4,11 @@
 	      <view
 	        class="shop-item"
 	        v-for="item in shopList"
-					key="item."
+					:key="item.id"
+					@tap="onDetail(item.id)"
 	      >
 	        <view>
-	          <image src="{{item.images[0]}}"></image>
+	          <image :src="item.images[0]"></image>
 	        </view>
 	        <view class="shop-content">
 	          <text style="font-weight:700">{{ item.name }}</text>
@@ -41,6 +42,14 @@
 						});
 					}
 					this.shopList = [...this.shopList,...res]
+				})
+			},
+			
+			// 跳转详情页
+			onDetail(id) {
+				console.log(id)
+				uni.navigateTo({
+					url:'../detail/detail?id='+id
 				})
 			}
 		},

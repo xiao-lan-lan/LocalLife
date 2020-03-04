@@ -31,6 +31,9 @@
 				"enablePullDownRefresh":true,
 				"onReachBottomDistance":50
 			}
+		},
+		{
+			"path": "pages/detail/detail"
 		}
 	],
 	"globalStyle": {
