@@ -18,7 +18,11 @@
 		
 		<!-- 宫格 -->
 		<view class="grid-list">
-			<view class="grid-item" v-for="grid in gridList" :key="grid.id">
+			<view class="grid-item" 
+				v-for="grid in gridList" 
+				:key="grid.id" 
+				@tap="onList(grid.id)"
+			>
 				<image :src="grid.icon" mode="" class="grid-img"></image>
 				<text class="text">{{grid.name}}</text>
 			</view>
@@ -48,6 +52,13 @@ export default {
 		loadGrid() {
 			this.$http.get('/categories').then(res => {
 			    this.gridList=res
+			})
+		},
+		
+		// 跳转列表
+		onList(id) {
+			uni.navigateTo({
+				url:'../list/list?id='+id
 			})
 		}
 	},
